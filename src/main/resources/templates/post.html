@@ -8,12 +8,16 @@
 <h4>Posts List</h4>
 <table>
   <tr>
+    <th>User</th>
     <th>Title</th>
     <th>Content</th>
+    <th>Date</th>
   </tr>
   <tr th:each="post : ${posts}">
+    <td th:text="${post.user}"></td>
     <td th:text="${post.title}"></td>
     <td th:text="${post.content}"></td>
+    <td th:text="${#dates.format(post.date, 'dd-MM-yyyy HH:mm')}"></td>
   </tr>
 </table>
 </body>
