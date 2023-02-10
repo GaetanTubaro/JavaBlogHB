@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator Dashboard</title>
+</head>
+<body>
+  <h1>DashBoard</h1>
+
+  <h4>Posts List</h4>
+  <table>
+      <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Role</th>
+      </tr>
+      <tr th:each="user : ${users}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.username}"></td>
+          <td th:text="${user.role}"></td>
+      </tr>
+  </table>
+</body>
+</html>

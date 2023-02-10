@@ -1,0 +1,16 @@
+[ {
+  "id" : 1,
+  "username" : "user",
+  "password" : "$2a$12$a5uMRm0MNoSWZmZ3c1ZsYeDppRyTxorA54Ubmp3ShZTOwaUKIvOku",
+  "role" : "USER"
+}, {
+  "id" : 2,
+  "username" : "admin",
+  "password" : "$2a$12$5Imjk1at5PVBS3CyKSXBKOJu2pdlbGQxFJB79UBA6CwrAPRpw6f4K",
+  "role" : "ADMIN"
+}, {
+  "id" : 3,
+  "username" : "toto",
+  "password" : "$2a$10$ieTq3ZN9hOgtSCDUAK3tkupzkTygRALHK/oxWBdomxMADH8ydg50y",
+  "role" : "USER"
+} ]
