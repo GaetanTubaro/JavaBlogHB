@@ -1,4 +1,6 @@
 package com.hb.blog.dtos;
 
-public record  PostDTO(String title, String content) {
+import java.util.Date;
+
+public record  PostDTO(String title, String content, String user, Date date) {
 }

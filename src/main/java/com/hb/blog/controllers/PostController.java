@@ -1,5 +1,6 @@
 package com.hb.blog.controllers;
 
+import com.hb.blog.dtos.LocalUserDTO;
 import com.hb.blog.dtos.PostDTO;
 import com.hb.blog.services.PostService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -32,7 +35,7 @@ public class PostController {
 
     @GetMapping("/new")
     public ModelAndView formNewPost() {
-        PostDTO postDTO = new PostDTO("","");
+        PostDTO postDTO = new PostDTO("","", "", new Date());
         ModelAndView mav = new ModelAndView("postForm");
         mav.addObject("postForm", postDTO);
 
