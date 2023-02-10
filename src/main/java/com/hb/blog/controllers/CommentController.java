@@ -3,10 +3,7 @@ package com.hb.blog.controllers;
 import com.hb.blog.dtos.CommentDTO;
 import com.hb.blog.services.CommentService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -40,7 +37,7 @@ public class CommentController {
         return mav;
     }
     @PostMapping("/new")
-    public ModelAndView addNewComment(CommentDTO commentDTO) {
+    public ModelAndView addNewComment(@ModelAttribute CommentDTO commentDTO) {
         commentService.addNewComment(commentDTO);
         return new ModelAndView("redirect:/private/comment/" + commentDTO.postId());
     }
