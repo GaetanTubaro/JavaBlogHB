@@ -25,7 +25,7 @@ public class PostService {
         List<Post> posts = postRepository.getPosts();
         List<PostDTO> postsDtos = new ArrayList<>();
 
-        posts.forEach((post) -> { postsDtos.add( new PostDTO(post.getTitle(), post.getContent(), post.getUser(), post.getDate())); });
+        posts.forEach((post) -> { postsDtos.add( new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getUser(), post.getDate())); });
 
         return postsDtos;
     }

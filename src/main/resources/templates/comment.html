@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>Comment List</h4>
+<table>
+    <tr>
+        <th>postId</th>
+        <th>Content</th>
+        <th>userCreator</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="comment : ${comments}">
+        <td th:text="${comment.postId}"></td>
+        <td th:text="${comment.content}"></td>
+        <td th:text="${comment.userCreator}"></td>
+        <td th:text="${#dates.format(comment.date, 'dd-MM-yyyy HH:mm')}"></td>
+    </tr>
+</table>
+<a th:href="@{/private/post}">Back</a>
+<a th:href="@{/private/comment/{postId}/new (postId=${postId})}">Add a new comment</a>
+</body>
+</html>
+

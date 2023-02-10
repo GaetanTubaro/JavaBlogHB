@@ -35,7 +35,7 @@ public class PostController {
 
     @GetMapping("/new")
     public ModelAndView formNewPost() {
-        PostDTO postDTO = new PostDTO("","", "", new Date());
+        PostDTO postDTO = new PostDTO(null,"","", "", new Date());
         ModelAndView mav = new ModelAndView("postForm");
         mav.addObject("postForm", postDTO);
 

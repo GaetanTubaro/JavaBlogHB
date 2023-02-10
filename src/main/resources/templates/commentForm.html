@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/private/comment/new}" th:object="${commentForm}">
+    <textarea th:field="*{content}">Add a comment</textarea>
+    <input type="hidden" th:field="*{postId}">
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>

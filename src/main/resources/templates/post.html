@@ -12,13 +12,21 @@
     <th>Title</th>
     <th>Content</th>
     <th>Date</th>
+    <th>Action</th>
   </tr>
   <tr th:each="post : ${posts}">
     <td th:text="${post.user}"></td>
     <td th:text="${post.title}"></td>
     <td th:text="${post.content}"></td>
     <td th:text="${#dates.format(post.date, 'dd-MM-yyyy HH:mm')}"></td>
+    <td>
+      <a th:href="@{/private/comment/{postId}(postId=${post.id})}">
+        <button>view</button>
+      </a>
+    </td>
   </tr>
 </table>
+<a th:href="@{/}">Retour</a>
+<a th:href="@{/private/post/new}">Ajouter un post</a>
 </body>
 </html>
