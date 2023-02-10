@@ -6,7 +6,6 @@ import com.hb.blog.reporitories.CommentRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,16 +19,8 @@ public class CommentService {
     }
 
     public List<CommentDTO> getPostComments(int id) {
-        List<Comment> comments = commentRepository.getComments();
-        List<CommentDTO> commentDTOS = new ArrayList<>();
 
-        comments.forEach((comment) -> {
-            if(comment.getPostId() == id) {
-                commentDTOS.add(new CommentDTO(id,comment.getContent(),comment.getUserCreator(),new Date()));
-            }
-        });
-
-        return commentDTOS;
+        return commentRepository.getCommentsByPost(id);
     }
 
     public void addNewComment(CommentDTO commentDTO) {

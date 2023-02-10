@@ -1,8 +1,6 @@
 package com.hb.blog.controllers;
 
 import com.hb.blog.dtos.CommentDTO;
-import com.hb.blog.dtos.PostDTO;
-import com.hb.blog.models.Comment;
 import com.hb.blog.services.CommentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
