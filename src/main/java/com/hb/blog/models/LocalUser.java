@@ -1,7 +1,10 @@
 package com.hb.blog.models;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class LocalUser {
     private Integer id;
+    @NotEmpty(message = "Username is mandatory")
     private String username;
     private String password;
     private String role;
@@ -9,7 +12,7 @@ public class LocalUser {
     public LocalUser() {
     }
 
-    public LocalUser(Integer id, String username, String password, String role) {
+    public LocalUser(Integer id,String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
