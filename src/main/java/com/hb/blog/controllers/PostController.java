@@ -1,16 +1,17 @@
 package com.hb.blog.controllers;
 
-import com.hb.blog.dtos.LocalUserDTO;
 import com.hb.blog.dtos.PostDTO;
 import com.hb.blog.services.PostService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -37,15 +38,18 @@ public class PostController {
     public ModelAndView formNewPost() {
         PostDTO postDTO = new PostDTO(null,"","", "", new Date());
         ModelAndView mav = new ModelAndView("postForm");
-        mav.addObject("postForm", postDTO);
+        mav.addObject("post", postDTO);
 
         return mav;
     }
 
     @PostMapping("/new")
-    public ModelAndView addUser(@ModelAttribute PostDTO postDTO) {
+    public String addPost(@Valid @ModelAttribute("post") PostDTO post, BindingResult result, Model model) {
 
-        postService.addNewPost(postDTO);
-        return new ModelAndView("redirect:/private/post");
+        if(result.hasErrors()) {
+            return "postForm";
+        }
+        postService.addNewPost(post);
+        return "redirect:/private/post";
     }
 }

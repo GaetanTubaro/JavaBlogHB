@@ -5,10 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" th:action="@{/private/post/new}" th:object="${postForm}">
-    <input type="text" th:field="*{title}">
-    <input type="text" th:field="*{content}">
-    <button type="submit">S'inscrire</button>
+<form method="post" th:action="@{/private/post/new}" th:object="${post}">
+    <input type="text" th:field="*{title}"> <br />
+    <p th:if="${#fields.hasErrors('title')}" th:errorclass="error" th:errors="*{title}" />
+    <input type="text" th:field="*{content}"> <br />
+    <p th:if="${#fields.hasErrors('content')}" th:errorclass="error" th:errors="*{content}" />
+    <button type="submit">Add</button>
 </form>
 </body>
 </html>
